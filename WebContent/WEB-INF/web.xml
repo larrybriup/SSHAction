@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>AirTickets</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>regist.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+  	<servlet-name>identify</servlet-name>
+  	<servlet-class>com.briup.web.servlet.IdentifyingCode</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>identify</servlet-name>
+  	<url-pattern>/image/code.img</url-pattern>
+  </servlet-mapping>
+  
+  <context-param>
+  	<param-name>contextConfigLocation</param-name>
+  	<param-value>
+  		/WEB-INF/bean.xml,
+  		/WEB-INF/application_dao.xml,
+  		/WEB-INF/application_service.xml,
+  		/WEB-INF/application_action.xml
+  	</param-value>
+  </context-param>
+  
+  <listener>
+  	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+  
+   <filter>
+    <filter-name>struts2</filter-name>
+    <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>struts2</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+</web-app>
