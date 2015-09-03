@@ -1,0 +1,76 @@
+
+
+web.xml
+	配置contextConfigLocation用来指定spring配置文件路径
+	配置一个listener用来加载这些配置文件 
+hibernate   
+	整合方式：
+		配置sessionfactory  bean  LocalSessionFactoryBean   
+		可以使用configLocation属性直接指定hibernate配置文件的路径
+	代码:
+		可以注入sessionFactory
+		可以注入HibernateTemplate  将sessionFactory注入到HibernateTemplate
+		<property name="javax.persistence.validation.mode">none</property>
+struts2:
+	导入struts2-spring-plugin.jar即可  
+	Action的class属性写spring配置文件中的bean的id值
+	且spring中对于action的bean配置scope="prototype"
+
+Struts2
+    lib/
+        必须
+        struts2-core-2.2.3.1.jar    //Struts2核心类库
+        xwork-core-2.2.3.1.jar      //webWork核心类库
+        ognl-3.0.1.jar              //OGNL表达式类库
+        freemarker-2.3.1.6.jar      //定义Struts2可视组件主题,表示层框架,Struts2使用
+        commons-fileupload-1.2.2.jar  //文件上传/下载
+        commons-io.jar     //IO流
+        commons-lang3-2.5.jar     //用来处理Java基本对象方法的工具类包,字符串是否为空等  2.3.4使用commons-lang-3
+        javassist-3.11.0.GA.jar  //Javassist是一个开源的分析、编辑和创建Java字节码的类
+        
+        日期选择插件
+        struts2-dojo-plugin-2.2.3.1.jar
+    
+Hibernate3.6.8
+    必须
+    hibernate3.jar
+    lib/
+        required/*.jar(javassist-3.*.jar与Struts2重复)
+        jpa/*.jar
+    如果使用日志需自行下载slf4j,并加入slf4j-nop-version.jar(version需要与lib/required/slf4j*api.jar对应)
+    如果使用log4j还需加入slf4j-log4j-version.jar和log4j-version.jar
+        
+Spring3.1.0
+    必须
+    dist/
+        org.springframework.core-3.1.0.jar
+        org.springframework.context-3.1.0.jar
+        org.springframework.beans-3.1.0.jar
+        org.springframework.expression-3.1.0.jar
+    commons-logging-.jar(需要在其project中找,或自行下载)
+    
+    aop
+    dist/org.springframework.aop-3.1.0.RC1.jar
+    以下三个文件需要自行下载
+        aopalliance.jar (http://sourceforge.net/projects/aopalliance/注意是aopalliance而不是aopalliance-alpha1.jar)
+        aspectjrt.jar   (http://www.eclipse.org/aspectj/)
+        aspectjweaver.jar
+    aop需要利用二进制码产生代理时
+     即nested exception is org.springframework.aop.framework.AopConfigException: Cannot proxy target class because CGLIB2 is not available. Add CGLIB to the class path or specify proxy interfaces.
+     cglib-nodep-2.2.2.jar (http://sourceforge.net/projects/cglib/)
+
+Sping2.5
+        必须
+    dist/spring.jar
+    lib/jakarta-commons/commons-logging.jar 日志用
+    
+    如果切面编程(AOP)
+    lib/aspectj/aspectjweaver.jar
+                aspectjrt.jar
+    lib/cglib/cglib-nodep-2.1_3.jar
+    如果使用JSR-250中注解
+    lib/j2ee/common-annotations.jar
+
+
+
+    
