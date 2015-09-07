@@ -4,6 +4,7 @@
 		    xsi:schemaLocation="
    http://www.springframework.org/schema/beans 
    http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+   
    <bean name="userDao" class="com.briup.dao.impl.UserDaoImpl" scope="prototype">
    		<property name="temp" >
    			<ref bean="hibernateTemplate"/>

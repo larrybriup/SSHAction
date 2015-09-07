@@ -4,6 +4,7 @@
 		    xsi:schemaLocation="
    http://www.springframework.org/schema/beans 
    http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+   
    <bean name="userService" class="com.briup.service.impl.UserServiceImpl" scope="prototype">
 		<property name="userDao">
 			<ref bean="userDao"/>
